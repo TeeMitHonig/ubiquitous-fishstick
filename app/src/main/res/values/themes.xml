@@ -2,7 +2,16 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.PRM_Project" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/dhbw_red</item>
+        <item name="colorAccent">@color/dhbw_red</item>
+        <item name="android:statusBarColor">#00000000</item>
+
+
+    </style>
+
+    <style name="datepicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/header_background_color</item>
+        <item name="colorAccent">@color/dhbw_red</item>
     </style>
 
     <style name="Theme.PRM_Project" parent="Base.Theme.PRM_Project" />

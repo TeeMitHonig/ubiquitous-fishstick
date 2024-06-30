@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">PRM_Project</string>
+    <string name="wip">Work in Progress</string>
+    <string name="open_nav_drawer">Open Navigation Drawer</string>
+    <string name="close_nav_drawer">Close Navigation Drawer</string>
+
+    <string name="headerHomework">Hausaufgaben hinzufügen</string>
+
+    <string name="text_progress">Fortschritt:</string>
+    <string name="text_title">Titel</string>
+    <string name="text_page_num">Seite Nr.</string>
+    <string name="text_add">Hinzufügen</string>
+    <string name="text_description">Beschreibung</string>
+    <string name="text_date">Datum</string>
+    <string name="text_lecture">Vorlesung</string>
+    <string name="text_new_lecture">Vorlesung</string>
+
+    <string name="header_text">DHBW-Verwaltung</string>
+    <string name="nav_home">Startseite</string>
+    <string name="nav_homework">Hausaufgaben</string>
+    <string name="nav_notes">Notizen</string>
+    <string name="nav_progress">Fortschritt</string>
 </resources>

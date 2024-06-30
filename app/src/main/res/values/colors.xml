@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dhbw_red">#DF0019</color>
+    <color name="header_background_color">#d6d2c9</color>
+    <color name="box_background_color">#f4f3f0</color>
+    <color name="border_color">#292929</color>
 </resources>

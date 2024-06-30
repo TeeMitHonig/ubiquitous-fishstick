@@ -13,11 +13,13 @@ public class Lecture {
 
     //TODO add List of Notes?
 
-
     public Lecture(Module module, String topic) {
         this.id = UUID.randomUUID();
         if(module == null)
             throw new IllegalArgumentException("module cannot be null");
+        if(Database.getInstance().getLectureByTopic(topic) != null)
+            throw new IllegalArgumentException("Lecture.topic must be unique");
+
         this.module = module;
         this.topic = topic;
     }
