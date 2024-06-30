@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -46,24 +47,33 @@ public class MainActivity extends AppCompatActivity {
         //TODO code restart of App when run in Error
         //Temporarily call the HomeworkActivity directly on Startup
         try {
-            this.startActivity(new Intent(MainActivity.this, HomeworkActivity.class));
+
 
             notificationHelper = new NotificationHelper(this);
             notificationHelper.createNotificationChannel();
-
+            Log.d("MainActivity", "NotificationHelper initialized");
+            Log.d("MainActivity", "FUCK YOU");
             //Neispiel Nottification wird  Temporär drinne egelassen Beidde alse können gelösct werden
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                Log.d("MainActivity", "FUCKING IF FUNKZIONIERT");
                 if (!hasExactAlarmPermission()) {
+                    Log.d("MainActivity", "FUCKING IF 2FUNKZIONIERT");
                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SCHEDULE_EXACT_ALARM}, REQUEST_CODE_SCHEDULE_EXACT_ALARM);
                 } else {
-                    notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 5, 20);
+                    Log.d("MainActivity", "FUCKING IF 2FUNKZIONIERT Nicht");
+                    notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 21, 16);
                 }
             } else {
-                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 5, 20);
+                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 21, 16);
             }
+
+
+            this.startActivity(new Intent(MainActivity.this, HomeworkActivity.class));
         } catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             //restart();
+            Log.e("MainActivity", "Error in onCreate: " + e.getMessage());
+
         }
     }
 
@@ -78,12 +88,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        Log.d("MainActivity","MOTHERFUCKING PERMISON METHODE KONNTE AUFGERUFEN WERDEN");
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
         if (requestCode == REQUEST_CODE_SCHEDULE_EXACT_ALARM) {
             //Kann tehoretisch auch weg ist aber nur ein beispeil test für benachrichtigungen
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 5, 20);
+                Log.d("MainActivity", "Permission granted, scheduling notification");
+                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 21, 16);
             } else {
+                Log.d("MainActivity", "Permission Not granted, scheduling notification");
                 // Berechtigung verweigert, leite Benutzer zu den Einstellungen
                 Toast.makeText(this, "Exact Alarm Permission Denied. Please enable it in the settings.", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent();

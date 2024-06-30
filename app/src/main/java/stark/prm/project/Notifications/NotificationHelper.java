@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.util.Log;
 
 import java.util.Calendar;
 
@@ -40,6 +41,7 @@ public class NotificationHelper {
 
     @SuppressLint("ScheduleExactAlarm")
     public void scheduleNotification(String message,int month,int day, int hour, int minute) {
+        Log.d("NotificationHelper", "Scheduling notification for " + day + "/" + month + " at " + hour + ":" + minute);
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.putExtra("message", message);
 
@@ -48,8 +50,8 @@ public class NotificationHelper {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.MONTH,day);
-        calendar.set(Calendar.DAY_OF_MONTH,month);
+//        calendar.set(Calendar.MONTH,month);
+//        calendar.set(Calendar.DAY_OF_MONTH,day);
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
