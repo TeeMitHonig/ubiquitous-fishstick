@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
             if (!hasExactAlarmPermission()) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SCHEDULE_EXACT_ALARM}, REQUEST_CODE_SCHEDULE_EXACT_ALARM);
             } else {
-                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 5, 14);
+                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6,30,5, 14);
             }
         } else {
-            notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 5, 14);
+            notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6,30,5, 14);
         }
     }
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_SCHEDULE_EXACT_ALARM) {
             //Kann tehoretisch auch weg ist aber nur ein beispeil test für benachrichtigungen
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 5, 14);
+                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6,30,5, 14);
             } else {
                 // Berechtigung verweigert, leite Benutzer zu den Einstellungen
                 Toast.makeText(this, "Exact Alarm Permission Denied. Please enable it in the settings.", Toast.LENGTH_LONG).show();
