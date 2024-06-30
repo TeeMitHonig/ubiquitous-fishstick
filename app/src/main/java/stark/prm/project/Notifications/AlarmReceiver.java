@@ -11,7 +11,6 @@ import androidx.core.app.NotificationCompat;
 import stark.prm.project.R;
 
 
-//TODO CODE AUS MAIN ZIEHEN UND DAS ICON HINZUFÜGHGEN DA SONST DIE NOTIFICATZION EINFACH STIRBT
 
 
 public class AlarmReceiver extends BroadcastReceiver {
@@ -22,7 +21,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         String message = intent.getStringExtra("message");
         System.out.println("RECIVER WURDE ANGESPROCHEN");
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "notification_channel")
-                .setSmallIcon(R.drawable.ic_test)    // TODO JOSIA NACH EINEN ICON FRAGEN
+                .setSmallIcon(R.drawable.ic_test)    // TODO Icon einfügen
                 .setContentTitle("Scheduled Notification")
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
