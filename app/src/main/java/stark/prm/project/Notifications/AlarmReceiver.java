@@ -10,9 +10,6 @@ import androidx.core.app.NotificationCompat;
 
 import stark.prm.project.R;
 
-
-
-
 public class AlarmReceiver extends BroadcastReceiver {
 
     private static final String TAG = "AlarmReceiver";

@@ -40,18 +40,30 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        notificationHelper = new NotificationHelper(this);
-        notificationHelper.createNotificationChannel();
+        Database.getInstance().add(
+                new Module("PRM", "Wolfgang Stark")
+        );
+        //TODO code restart of App when run in Error
+        //Temporarily call the HomeworkActivity directly on Startup
+        try {
+            this.startActivity(new Intent(MainActivity.this, HomeworkActivity.class));
 
-        //Neispiel Nottification wird  Temporär drinne egelassen Beidde alse können gelösct werden
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            if (!hasExactAlarmPermission()) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SCHEDULE_EXACT_ALARM}, REQUEST_CODE_SCHEDULE_EXACT_ALARM);
+            notificationHelper = new NotificationHelper(this);
+            notificationHelper.createNotificationChannel();
+
+            //Neispiel Nottification wird  Temporär drinne egelassen Beidde alse können gelösct werden
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                if (!hasExactAlarmPermission()) {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SCHEDULE_EXACT_ALARM}, REQUEST_CODE_SCHEDULE_EXACT_ALARM);
+                } else {
+                    notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 5, 20);
+                }
             } else {
-                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6,30,5, 14);
+                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 5, 20);
             }
-        } else {
-            notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6,30,5, 14);
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            //restart();
         }
     }
 
@@ -70,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_SCHEDULE_EXACT_ALARM) {
             //Kann tehoretisch auch weg ist aber nur ein beispeil test für benachrichtigungen
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6,30,5, 14);
+                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 5, 20);
             } else {
                 // Berechtigung verweigert, leite Benutzer zu den Einstellungen
                 Toast.makeText(this, "Exact Alarm Permission Denied. Please enable it in the settings.", Toast.LENGTH_LONG).show();
@@ -79,18 +91,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }
-        Database.getInstance().add(
-                new Module("PRM", "Wolfgang Stark")
-        );
-    //TODO code restart of App when run in Error
-        //Temporarily call the HomeworkActivity directly on Startup
-        try {
-            this.startActivity(new Intent(MainActivity.this, HomeworkActivity.class));
-        } catch (Exception e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            //restart();
-        }
     }
+
     public void restart() {
         finish();
         //this.startActivity(getIntent());
