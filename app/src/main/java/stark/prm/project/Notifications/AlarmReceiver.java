@@ -18,7 +18,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         String message = intent.getStringExtra("message");
         System.out.println("RECIVER WURDE ANGESPROCHEN");
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "notification_channel")
-                .setSmallIcon(R.drawable.ic_test)    // TODO Icon einfügen
+                .setSmallIcon(R.drawable.ic_icon)    // TODO Icon einfügen
                 .setContentTitle("Scheduled Notification")
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
