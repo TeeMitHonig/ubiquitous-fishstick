@@ -44,11 +44,8 @@ public class MainActivity extends AppCompatActivity {
         Database.getInstance().add(
                 new Module("PRM", "Wolfgang Stark")
         );
-        //TODO code restart of App when run in Error
-        //Temporarily call the HomeworkActivity directly on Startup
+
         try {
-
-
             notificationHelper = new NotificationHelper(this);
             notificationHelper.createNotificationChannel();
             Log.d("MainActivity", "NotificationHelper initialized");
