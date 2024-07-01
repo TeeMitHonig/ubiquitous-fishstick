@@ -13,6 +13,12 @@ import stark.prm.project.R;
 public class AlarmReceiver extends BroadcastReceiver {
 
     private static final String TAG = "AlarmReceiver";
+
+    /**
+     *
+     * @param context
+     * @param intent
+     */
     @Override
     public void onReceive(Context context, Intent intent) {
         String message = intent.getStringExtra("message");
@@ -23,11 +29,6 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
-
-
-
-
-
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (notificationManager != null) {

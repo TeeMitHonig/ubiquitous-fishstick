@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_SCHEDULE_EXACT_ALARM = 100;
     private NotificationHelper notificationHelper;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -74,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     private boolean hasExactAlarmPermission() {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

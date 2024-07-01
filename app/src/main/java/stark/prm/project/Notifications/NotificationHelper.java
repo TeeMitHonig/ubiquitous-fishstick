@@ -24,6 +24,9 @@ public class NotificationHelper {
         this.context = context;
     }
 
+    /**
+     *
+     */
     public void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Notification Channel";
@@ -39,6 +42,14 @@ public class NotificationHelper {
         }
     }
 
+    /**
+     *
+     * @param message
+     * @param month
+     * @param day
+     * @param hour
+     * @param minute
+     */
     @SuppressLint("ScheduleExactAlarm")
     public void scheduleNotification(String message,int month,int day, int hour, int minute) {
         Log.d("NotificationHelper", "Scheduling notification for " + day + "/" + month + " at " + hour + ":" + minute);
