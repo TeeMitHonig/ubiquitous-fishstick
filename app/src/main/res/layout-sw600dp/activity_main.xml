@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:paddingHorizontal="5dp">
+    android:padding="20dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/dhbw_red"
+        android:layout_width="370dp"
+        android:layout_height="680dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="0dp"
+        android:background="@drawable/header_background"
         android:orientation="vertical"
         android:paddingHorizontal="5dp"
+        android:paddingTop="5dp"
         android:paddingBottom="10dp">
 
         <ImageView
@@ -28,28 +30,12 @@
             android:text="@string/header_text"
             android:textColor="@color/border_color"
             android:textSize="24sp" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/header_background"
-        android:orientation="vertical"
-        android:paddingHorizontal="5dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-
+        <!-- Zeile für Hausaufgaben -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="15dp"
-            tools:ignore="ExtraText">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_homework" />
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
@@ -61,19 +47,14 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/icon_next" />
-
+                android:text="" />
         </LinearLayout>
 
+        <!-- Zeile für Notizen -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_notes" />
 
             <TextView
                 android:layout_width="0dp"
@@ -85,31 +66,26 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/icon_next"
-                 />
+                android:text="" />
         </LinearLayout>
 
+        <!-- Zeile für Vorlesungen -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/icon_progress" />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Lernfortschritt"
+                android:text="Vorlesungen"
                 android:textSize="18sp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/icon_next"
-                 />
+                android:text="" />
         </LinearLayout>
+
     </LinearLayout>
