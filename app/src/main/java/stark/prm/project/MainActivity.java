@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!hasExactAlarmPermission()) {
                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SCHEDULE_EXACT_ALARM}, REQUEST_CODE_SCHEDULE_EXACT_ALARM);
                 } else {
-                    notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 13, 55);
+                    notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 12, 24);
                 }
             }
             //this.startActivity(new Intent(MainActivity.this, HomeworkActivity.class));
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             //Kann tehoretisch auch weg ist aber nur ein beispeil test für benachrichtigungen
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Log.d("MainActivity", "Permission granted, scheduling notification");
-                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 13, 55);
+                notificationHelper.scheduleNotification("Dies ist eine geplante Benachrichtigung", 6, 30, 21, 16);
             } else {
                 Log.d("MainActivity", "Permission Not granted, scheduling notification");
                 // Berechtigung verweigert, leite Benutzer zu den Einstellungen
